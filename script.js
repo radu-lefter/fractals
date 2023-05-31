@@ -8,17 +8,19 @@ window.addEventListener('load', function () {
   ctx.fillStyle = 'green';
   ctx.strokeStyle = 'yellow';
   ctx.lineWidth = 40;
-  ctx.lineCap = "round";
+  ctx.lineCap = 'round';
 
   //effect settings
   let size = 100;
-
-  ctx.translate(100, 100);
+  ctx.save();
+  ctx.translate(canvas.width / 2, canvas.height / 2);
   ctx.scale(0.5, 0.5);
   ctx.rotate(-0.5);
   ctx.fillRect(0, 0, canvas.width, canvas.height);
+
   ctx.beginPath();
-  ctx.moveTo(canvas.width/2, canvas.height/2);
-  ctx.lineTo(size, canvas.height/2);
+  ctx.moveTo(0, 0);
+  ctx.lineTo(size, 0);
   ctx.stroke();
+  ctx.restore();
 });
