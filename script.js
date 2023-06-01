@@ -7,20 +7,27 @@ window.addEventListener('load', function () {
   //canvas settings
   ctx.fillStyle = 'green';
   ctx.strokeStyle = 'yellow';
-  ctx.lineWidth = 40;
+  ctx.lineWidth = 30;
   ctx.lineCap = 'round';
 
   //effect settings
-  let size = 100;
+  let size = 200;
+  let sides = 14;
   ctx.save();
   ctx.translate(canvas.width / 2, canvas.height / 2);
-  ctx.scale(0.5, 0.5);
-  ctx.rotate(-0.5);
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.scale(1, 1);
+  ctx.rotate(0);
+  //ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  ctx.beginPath();
-  ctx.moveTo(0, 0);
-  ctx.lineTo(size, 0);
-  ctx.stroke();
+  for(let i = 0; i < sides; i++){
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.lineTo(size, 0);
+    ctx.stroke();
+    ctx.rotate((Math.PI/2)/sides);
+  }
+  
+ 
+
   ctx.restore();
 });
