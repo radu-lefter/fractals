@@ -9,6 +9,10 @@ window.addEventListener('load', function () {
   ctx.strokeStyle = 'yellow';
   ctx.lineWidth = 10;
   ctx.lineCap = 'round';
+  ctx.shadowColor = 'rgba(0,0,0,0.7)';
+  ctx.shadowOffsetX = 10;
+  ctx.shadowOffsetY = 5;
+  ctx.shadowBlur = 10;
 
   //effect settings
   let size = 100;
@@ -44,8 +48,6 @@ window.addEventListener('load', function () {
   function drawFractal() {
     ctx.save();
     ctx.translate(canvas.width / 2, canvas.height / 2);
-    ctx.scale(1, 1);
-    ctx.rotate(0);
     for (let i = 0; i < sides; i++) {
       ctx.rotate(Math.PI * 2 / sides);
       drawBranch(0);
