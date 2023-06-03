@@ -6,7 +6,7 @@ window.addEventListener('load', function () {
 
   //canvas settings
   ctx.fillStyle = 'red';
-  ctx.strokeStyle = 'yellow';
+  
   ctx.lineWidth = 10;
   ctx.lineCap = 'round';
   ctx.shadowColor = 'rgba(0,0,0,0.7)';
@@ -21,6 +21,7 @@ window.addEventListener('load', function () {
   let scale = 0.5;
   let spread = 0.8;
   let branches = 2;
+  let color = 'hsl(' + Math.random() * 360 + '0, 100%, 50%)'
 
   function drawBranch(level) {
     if (level > maxLevel) return;
@@ -47,6 +48,7 @@ window.addEventListener('load', function () {
 
   function drawFractal() {
     ctx.save();
+    ctx.strokeStyle = color;
     ctx.translate(canvas.width / 2, canvas.height / 2);
     for (let i = 0; i < sides; i++) {
       ctx.rotate(Math.PI * 2 / sides);
